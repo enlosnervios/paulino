@@ -1,0 +1,24 @@
+{
+  "name": "paulino",
+  "version": "1.0.0",
+  "description": "Paulino Records",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "authors": [
+    "Eduardo Delgaldo"
+  ],
+  "license": "GPL3",
+  "homepage": "http://paulinorecords.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "zurb/bower-foundation#~5.5.1"
+  }
+}
