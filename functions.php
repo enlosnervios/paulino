@@ -27,10 +27,9 @@ function register_enqueue_scripts()
 }
 add_action( 'wp_enqueue_scripts', 'register_enqueue_scripts' );
 
-
 function add_link_meta_box()
 {
-  add_meta_box( 'record_link_box', 'Link de descarga del disco', 'link_meta_box_callback' );
+  add_meta_box( 'record_link_box', 'Link de descarga', 'link_meta_box_callback' );
 }
 add_action( 'add_meta_boxes', 'add_link_meta_box' );
 
@@ -40,7 +39,7 @@ function link_meta_box_callback( $post )
 
   $post_meta = get_post_meta( $post->ID ); ?>
 
-  <input type="text" name="download-link" id="meta-text" value="<?php if ( isset ( $post_meta['download-link'] ) ) echo $post_meta['download-link'][0]; ?>" />
+  <input type="text" name="download-link" id="meta-text" size="50" value="<?php if ( isset ( $post_meta['download-link'] ) ) echo $post_meta['download-link'][0]; ?>" />
 <?php
 }
 
@@ -59,3 +58,4 @@ function link_meta_box_save( $post_id )
   }
 }
 add_action( 'save_post', 'link_meta_box_save' );
+

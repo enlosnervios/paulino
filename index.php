@@ -27,7 +27,7 @@
                   the_content(); ?>
 
                   <span class="download-link">
-                      <a href="<?php echo get_post_meta( $post->ID, 'download-link', true); ?>" title="Descarga este disco">Descarga este disco</a>
+                      <a href="<?php echo get_post_meta( $post->ID, 'download-link', true); ?>">Descarga este disco</a>
                   </span>
 
               </div><?php
@@ -43,12 +43,12 @@
       <div class="columns small-4 small-centered">
         <ul class="inline-list">
           <li>
-            <a href="http://pauobianchi.bandcamp.com" title="Perfil de Paulino Records en Bandcamp">
+            <a href="http://pauobianchi.bandcamp.com" title="Perfil de Paulino Records en Bandcamp" target="_blank">
               <img class="bandcamp" src="<?php echo get_template_directory_uri(); ?>/assets/img/bandcamp.png" alt="Bandcamp">
             </a>
           </li>
           <li>
-            <a href="http://facebook.com/pauobianchi" title="Perfil de Paulino Records en Facebook.com">
+            <a href="http://facebook.com/pauobianchi" title="Perfil de Paulino Records en Facebook.com" target="_blank">
               <img class="facebook" src="<?php echo get_template_directory_uri(); ?>/assets/img/facebook.png" alt="Facebook">
             </a>
           </li>
@@ -58,12 +58,12 @@
             </a>
           </li>
           <li>
-            <a href="http://twitter.com/paulinorecords" title="Cuenta de Twitter">
+            <a href="http://twitter.com/paulinorecords" title="Cuenta de Twitter" target="_blank">
               <img class="mail" src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter.png" alt="Twitter">
             </a>
           </li>
           <li class="right">
-            <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
               <input type="hidden" name="cmd" value="_s-xclick">
               <input type="hidden" name="hosted_button_id" value="9Z79U8V4WQU8E">
               <input type="button" data-tooltip aria-haspopup="true" class="paypal has-tip tip-right radius" value="Donar" title="¡Una monedita pal disco!">
@@ -75,8 +75,11 @@
     </div>
 
     <div id="subscribe" class="row">
-        <div class="columns large-8 large-centered text-center">
-          <?php echo chimpy_lite_form() ?>
+        <div class="columns large-4 large-centered text-center">
+            <span role="button" class="button tiny secondary radius" data-reveal-id="subscribe-modal">Subscribite a las noticias</span>
+        </div>
+        <div id="subscribe-modal" class="reveal-modal small" data-reveal aria-hidden="true" role="dialog">
+            <?php echo chimpy_lite_form(); ?>
         </div>
     </div>
 
