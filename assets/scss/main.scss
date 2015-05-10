@@ -14,12 +14,48 @@ h2 {
   margin-bottom: 50px;
 }
 
-#contet {
+#content {
   margin-bottom: 20px;
+
+  p {
+    margin-bottom: 0px;
+  }
+
+  .download-link {
+    border: 1px dashed #ccc;
+    display: block;
+    text-align: center;
+
+    a {
+      color: #333;
+      font-size: small;
+      font-weight: bold;
+    }
+  }
 }
 
-#social img {
-  height: 40px;
+#social {
+  img  {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.paypal {
+  background: #79a94a;
+  color: #fff;
+  cursor: pointer !important;
+  border: 0;
+  border-radius: 3px;
+  padding: 5px 15px;
+
+  &:hover {
+    background: #60833e;
+    color: #fff !important;
+  }
 }
 
 .slick-prev:before,

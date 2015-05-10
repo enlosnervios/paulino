@@ -22,7 +22,15 @@
           <?php
           if ( have_posts() ) :
             while ( have_posts() ) : the_post();
-              the_content();
+              ?><div><?php
+
+                  the_content(); ?>
+
+                  <span class="download-link">
+                      <a href="<?php echo get_post_meta( $post->ID, 'download-link', true); ?>" title="Descarga este disco">Descarga este disco</a>
+                  </span>
+
+              </div><?php
             endwhile;
           endif;
           ?>
@@ -32,10 +40,12 @@
 
 
     <div id="social" class="row">
-      <div class="columns small-5 small-centered">
+      <div class="columns small-4 small-centered">
         <ul class="inline-list">
           <li>
+            <a href="http://pauobianchi.bandcamp.com" title="Perfil de Paulino Records en Bandcamp">
               <img class="bandcamp" src="<?php echo get_template_directory_uri(); ?>/assets/img/bandcamp.png" alt="Bandcamp">
+            </a>
           </li>
           <li>
             <a href="http://facebook.com/pauobianchi" title="Perfil de Paulino Records en Facebook.com">
@@ -44,19 +54,19 @@
           </li>
           <li>
             <a href="mailto:hola@paulinorecords.com" title="Correo electrónico">
-              <img class="mail" src="<?php echo get_template_directory_uri(); ?>/assets/img/mail.png" alt="Bandcamp">
+              <img class="mail" src="<?php echo get_template_directory_uri(); ?>/assets/img/mail.png" alt="Correo electrónico">
             </a>
           </li>
           <li>
             <a href="http://twitter.com/paulinorecords" title="Cuenta de Twitter">
-              <img class="mail" src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter.png" alt="Bandcamp">
+              <img class="mail" src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter.png" alt="Twitter">
             </a>
           </li>
-          <li>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <li class="right">
+            <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input type="hidden" name="cmd" value="_s-xclick">
               <input type="hidden" name="hosted_button_id" value="9Z79U8V4WQU8E">
-              <input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal. La forma rápida y segura de pagar en Internet.">
+              <input type="button" data-tooltip aria-haspopup="true" class="paypal has-tip tip-right radius" value="Donar" title="¡Una monedita pal disco!">
               <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
             </form>
           </li>
@@ -73,8 +83,16 @@
     <?php wp_footer() ?>
 
     <script>
-      jQuery('.single-item').slick({
-          adaptiveHeight: true,
+      jQuery('.single-item').slick();
+
+      jQuery( document ).foundation({
+          tooltip: {
+            append_to: '#social'
+          }
+      });
+
+      jQuery( '.paypal' ).click( function() {
+          jQuery( '#paypal-form' ).submit();
       });
     </script>
   </body>
