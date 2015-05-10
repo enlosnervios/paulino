@@ -8,6 +8,7 @@ h2 {
 
 #header {
   margin-bottom: 30px;
+  margin-top: 20px;
 }
 #social {
   margin-bottom: 50px;
@@ -19,4 +20,9 @@ h2 {
 
 #social img {
   height: 40px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #000 !important;
 }
