@@ -17,7 +17,7 @@
     </div>
 
     <div id="content" class="row">
-        <div class="columns large-4 large-centered">
+        <div id="item-wrapper" class="columns large-12 large-centered">
           <div class="single-item">
           <?php
           if ( have_posts() ) :
@@ -26,9 +26,9 @@
 
                   the_content(); ?>
 
-                  <span class="download-link">
+                  <!--<span class="download-link">
                       <a href="<?php echo get_post_meta( $post->ID, 'download-link', true); ?>">Descarga este disco</a>
-                  </span>
+                  </span>-->
 
               </div><?php
             endwhile;
@@ -40,10 +40,10 @@
 
 
     <div id="social" class="row">
-      <div class="columns small-4 small-centered">
+      <div class="columns small-3 small-centered">
         <ul class="inline-list">
           <li>
-            <a href="http://pauobianchi.bandcamp.com" title="Perfil de Paulino Records en Bandcamp" target="_blank">
+            <a href="http://paulinorecords.bandcamp.com" title="Perfil de Paulino Records en Bandcamp" target="_blank">
               <img class="bandcamp" src="<?php echo get_template_directory_uri(); ?>/assets/img/bandcamp.png" alt="Bandcamp">
             </a>
           </li>
@@ -62,14 +62,6 @@
               <img class="mail" src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter.png" alt="Twitter">
             </a>
           </li>
-          <li class="right">
-            <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-              <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="9Z79U8V4WQU8E">
-              <input type="button" data-tooltip aria-haspopup="true" class="paypal has-tip tip-right radius" value="Donar" title="¡Una monedita pal disco!">
-              <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-            </form>
-          </li>
         </ul>
       </div>
     </div>
@@ -86,7 +78,9 @@
     <?php wp_footer() ?>
 
     <script>
-      jQuery('.single-item').slick();
+          jQuery('.single-item').slick({
+            slidesToShow: 3,
+          });
 
       jQuery( document ).foundation({
           tooltip: {
